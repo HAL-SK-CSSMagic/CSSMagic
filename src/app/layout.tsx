@@ -1,4 +1,6 @@
-import { CssBaseline } from '@mui/material';
+import { darkTheme } from '@/themes';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -12,10 +14,14 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="jp">
 			<body>
-				<CssBaseline />
-				{children}
+				<ThemeProvider theme={darkTheme}>
+					<body>
+						<CssBaseline />
+						<AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+					</body>
+				</ThemeProvider>
 			</body>
 		</html>
 	);
