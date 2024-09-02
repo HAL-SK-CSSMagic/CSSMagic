@@ -5,7 +5,7 @@ const StartBtn = () => {
 	return (
 		<Box width="500px" m="20px auto" textAlign="center" color="#000">
 			<Link
-				href="/"
+				href="/stage_select"
 				display="block"
 				letterSpacing="10px"
 				fontFamily="" //後で追加
