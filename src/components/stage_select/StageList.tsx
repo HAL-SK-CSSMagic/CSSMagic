@@ -1,49 +1,63 @@
 import React from 'react';
 import { Box, List, ListItem, ListItemText } from '@mui/material';
-import { stageList } from '@/utils';
+import { stageData, StageData } from '@/utils/stage/stageData';
 
-export const StageList = () => {
+interface StageListProps {
+	onStageSelect: (stage: StageData) => void;
+	selectedStageId: number | undefined;
+}
+
+export const StageList: React.FC<StageListProps> = ({
+	onStageSelect,
+	selectedStageId,
+}) => {
 	return (
-		<>
-			<Box
-				sx={{
-					flex: 1,
-					padding: '10px',
-					maxWidth: '35%',
-					height: '500px',
-					backgroundColor: '#232323',
-					overflowY: 'scroll',
-					'&::-webkit-scrollbar': {
-						width: '8px',
-					},
-					'&::-webkit-scrollbar-track': {
-						background: 'transparent',
-					},
-					'&::-webkit-scrollbar-thumb': {
-						backgroundColor: '#ddd',
-						borderRadius: '10px',
-						transition: '0.3s',
-					},
-					'&::-webkit-scrollbar-thumb:hover': {
-						backgroundColor: 'rgba(0, 0, 0, 0.8)',
-					},
-				}}
-			>
-				<List>
-					{stageList.map((stage) => (
-						<ListItem
-							key={stage.id}
-							button
+		<Box
+			sx={{
+				flex: 1,
+				padding: '10px',
+				maxWidth: '35%',
+				height: '80vh',
+				borderRadius: '10px 0 0 10px',
+				backdropFilter: 'blur(60px)',
+				backgroundColor: 'rgba(255, 255, 255, 0.7)',
+				overflowY: 'scroll',
+				'&::-webkit-scrollbar': {
+					width: '8px',
+				},
+				'&::-webkit-scrollbar-track': {
+					background: 'transparent',
+				},
+				'&::-webkit-scrollbar-thumb': {
+					backgroundColor: '#ccc',
+					borderRadius: '10px',
+				},
+			}}
+		>
+			<List>
+				{stageData.map((stage) => (
+					<ListItem
+						button
+						key={stage.id}
+						onClick={() => onStageSelect(stage)}
+						sx={{
+							padding: '20px',
+							borderBottom: '1px solid black',
+							backgroundColor:
+								stage.id === selectedStageId
+									? 'rgba(0, 0, 0, 0.1)'
+									: 'transparent',
+						}}
+					>
+						<ListItemText
+							primary={stage.stage_name}
 							sx={{
-								padding: '20px',
+								color: '#000',
 							}}
-							style={{ borderBottom: '1px solid black' }}
-						>
-							<ListItemText primary={stage.stage_name} />
-						</ListItem>
-					))}
-				</List>
-			</Box>
-		</>
+						/>
+					</ListItem>
+				))}
+			</List>
+		</Box>
 	);
 };

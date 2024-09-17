@@ -1,4 +1,4 @@
-import { darkTheme } from '@/themes';
+import { lightTheme } from '@/themes';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import type { Metadata } from 'next';
@@ -16,7 +16,7 @@ export default function RootLayout({
 	return (
 		<html lang="jp">
 			<body>
-				<ThemeProvider theme={darkTheme}>
+				<ThemeProvider theme={lightTheme}>
 					<body>
 						<CssBaseline />
 						<AppRouterCacheProvider>{children}</AppRouterCacheProvider>
