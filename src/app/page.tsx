@@ -17,10 +17,6 @@ const page = () => {
 					backgroundImage: 'url(/wind_bf.jpg)',
 				}}
 			>
-				{/* <Box position="absolute" top="10px" right="10px">
-					<SettingBtn />
-				</Box> */}
-
 				<Box
 					display="flex"
 					justifyContent="center"
@@ -39,12 +35,10 @@ const page = () => {
 					</Box>
 
 					<Box display="flex" justifyContent="center">
-						{/* Click to Start ボタン */}
 						<StartBtn />
 					</Box>
 				</Box>
 
-				{/* 右下のコピーライト */}
 				<Box position="fixed" bottom="10px" right="10px" color="gray">
 					© 2024 CSS Magic
 				</Box>

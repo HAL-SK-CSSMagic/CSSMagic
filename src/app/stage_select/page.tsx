@@ -1,9 +1,8 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { StageList } from '@/components/stage_select/StageList';
-import { StageDetail } from '@/components/stage_select/StageDetail';
+import { StageSelectionContainer } from '@/components/stage_select/StageSelectContainer';
 
-const page = () => (
+const Page = () => (
 	<Box
 		display="flex"
 		flexDirection="column"
@@ -19,10 +18,9 @@ const page = () => (
 			alignItems="center"
 			flexGrow={1}
 		>
-			<StageList />
-			<StageDetail />
+			<StageSelectionContainer />
 		</Box>
 	</Box>
 );
 
-export default page;
+export default Page;
